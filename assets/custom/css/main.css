@@ -1,0 +1,18 @@
+.error {
+    color: #B20000;
+}
+
+.btnlink {
+     background:none!important;
+     color: #fff;
+     border:none; 
+     padding:0!important;
+     font: inherit;
+    cursor: pointer;
+	margin-top: 15px;
+}
+
+.btnlink:hover{
+     color: #18BC9C;
+     
+}

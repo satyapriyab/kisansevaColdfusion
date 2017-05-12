@@ -1,0 +1,18 @@
+DATE/TIME: {ts '2017-05-11 20:55:33'} 
+ERROR MESSAGE: The TYPE argument passed to the createUser function is not of type number. 
+ERROR DETAILS: If the component name is specified as a type of this argument, it is possible that either a definition file for the component cannot be found or is not accessible. 
+ERROR TEMPLATE: D:\coldfusion\KisanSeva\model\userModel.cfc 
+ERROR LINE: 20 
+ERROR TYPE: number 
+STACKTRACE: 	at cfuserModel2ecfc1243857052$funcCREATEUSER.runFunction(D:\coldfusion\KisanSeva\model\userModel.cfc:20) 
+----------------------------------------------------------------------
+
+DATE/TIME: {ts '2017-05-11 21:02:10'} 
+ERROR MESSAGE: The value returned from the createUser function is not of type boolean. 
+ERROR DETAILS: If the component name is specified as a return type, it is possible that either a definition file for the component cannot be found or is not accessible. 
+ERROR TEMPLATE: D:\coldfusion\KisanSeva\controller\userController.cfc 
+ERROR LINE: 50 
+ERROR TYPE: boolean 
+STACKTRACE: 	at cfuserController2ecfc447268575$funcREGISTERUSER.runFunction(D:\coldfusion\KisanSeva\controller\userController.cfc:50) 
+----------------------------------------------------------------------
+
