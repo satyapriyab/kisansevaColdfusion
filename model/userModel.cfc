@@ -89,16 +89,36 @@ component {
     * @param string $email - contains email of the user.
     * @return - Returns boolian value if token updated or not.
     */
-	public boolean function updatePassword(string password, string email)
+	public boolean function update(string data1, string data2, string field1, string field2)
 	{
 		try {
-			var hashPassword = HASH(password);
-			updatepassword = new Query();
-			updatepassword.setSQL("UPDATE dbo.userInfo SET UserPassword = :password WHERE UserEmail = :email");
-			updatepassword.addParam( name = "password", value = "#local.hashPassword#", cfsqltype = "cf_sql_varchar" );
-			updatepassword.addParam( name = "email", value = "#arguments.email#", cfsqltype = "cf_sql_varchar" );
-			result = updatepassword.execute();
+			update = new Query();
+			update.setSQL("UPDATE dbo.userInfo SET #ARGUMENTS.field1# = :data1 WHERE #ARGUMENTS.field2# = :data2");
+			update.addParam( name = "data1", value = "#arguments.data1#", cfsqltype = "cf_sql_varchar" );
+			update.addParam( name = "data2", value = "#arguments.data2#", cfsqltype = "cf_sql_varchar" );
+			result = update.execute();
 			return "true";
+		}
+		
+		catch (any exception){
+			error.errorLog(exception);
+		}
+	}
+	
+		/**
+    * Function to add update password.
+    *
+    * @param string $password - contains new password.
+    * @param string $email - contains email of the user.
+    * @return - Returns boolian value if token updated or not.
+    */
+	public any function userDetails()
+	{
+		try {
+			userDetails = new Query();
+			userDetails.setSQL("SELECT * FROM dbo.userInfo");
+			result = userDetails.execute();
+			return result;
 		}
 		
 		catch (any exception){
