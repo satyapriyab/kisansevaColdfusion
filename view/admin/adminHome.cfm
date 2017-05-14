@@ -37,7 +37,7 @@
 					</a>
 				</li>
 				<li class="treeview">
-					<a href="../../view/admin/farmerData.cfm">
+					<a href="../../view/admin/userData.cfm">
 						<i class="fa fa-users"></i>
 						<span>Farmer</span>
 					</a>

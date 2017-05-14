@@ -8,8 +8,15 @@
 <head>
 	<title>Admin | FarmerDetails</title>
 	<cfinclude template="../master/header.cfm">
+	<cfset controllerObject = CreateObject("component","controller.adminController") />
 	<cfif  SESSION.type NEQ 1>
 		<cflocation url="../../view/login/login.cfm" addToken="false"></cflocation>
+	</cfif>
+	<cfif isDefined("url.status")>
+		<cfset status = url.status />
+		<cfset userId = url.userId />
+		<cfset VARIABLES.changeStatus = controllerObject.statusUpdate( userId = "#userId#", status = "#status#")>
+		<cflocation url="../../view/admin/userData.cfm" addToken="false"></cflocation>
 	</cfif>
 	<aside class="main-sidebar">
 		<section class="sidebar">
@@ -37,7 +44,7 @@
 					</a>
 				</li>
 				<li class="treeview">
-					<a href="../../view/admin/farmerData.cfm">
+					<a href="../../view/admin/userData.cfm">
 						<i class="fa fa-users"></i>
 						<span>Farmer</span>
 					</a>

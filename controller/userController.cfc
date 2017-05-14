@@ -180,7 +180,8 @@ component {
 			if (Len(password) < 5) {
 				return 'Password Should be of minimum 5 charecters';
 			}
-			var LOCAL.updatePassword = userObject.updatePassword(password, email);
+			var hashPassword = HASH(password);
+			var LOCAL.updatePassword = userObject.update(LOCAL.hashPassword, ARGUMENTS.email, "UserPassword", "UserEmail");
 			return LOCAL.updatePassword;
 		}
 		

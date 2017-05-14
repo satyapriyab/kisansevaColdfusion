@@ -16,3 +16,66 @@ ERROR TYPE: boolean
 STACKTRACE: 	at cfuserController2ecfc447268575$funcREGISTERUSER.runFunction(D:\coldfusion\KisanSeva\controller\userController.cfc:50) 
 ----------------------------------------------------------------------
 
+DATE/TIME: {ts '2017-05-13 01:25:34'} 
+ERROR MESSAGE: Error Executing Database Query. 
+ERROR DETAILS: [Macromedia][SQLServer JDBC Driver]Connection reset by peer: socket write error 
+ERROR TEMPLATE: C:\ColdFusion10\cfusion\CustomTags\com\adobe\coldfusion\base.cfc 
+ERROR LINE: 445 
+ERROR TYPE: Database 
+STACKTRACE: 	at cfbase2ecfc450754003$funcINVOKETAG.runFunction(C:\ColdFusion10\cfusion\CustomTags\com\adobe\coldfusion\base.cfc:445) 
+----------------------------------------------------------------------
+
+DATE/TIME: {ts '2017-05-13 01:25:34'} 
+ERROR MESSAGE: Element ISLOGGED is undefined in a Java object of type class [Ljava.lang.String;. 
+ERROR DETAILS:  
+ERROR TEMPLATE: D:\coldfusion\KisanSeva\controller\userController.cfc 
+ERROR LINE: 86 
+ERROR TYPE: Expression 
+STACKTRACE: 	at cfuserController2ecfc447268575$funcLOGINUSER.runFunction(D:\coldfusion\KisanSeva\controller\userController.cfc:86) 
+----------------------------------------------------------------------
+
+DATE/TIME: {ts '2017-05-14 21:30:15'} 
+ERROR MESSAGE: The method checkUser was not found in component D:\coldfusion\KisanSeva\model\userModel.cfc. 
+ERROR DETAILS: Ensure that the method is defined, and that it is spelled correctly. 
+ERROR TEMPLATE: D:\coldfusion\KisanSeva\controller\userController.cfc 
+ERROR LINE: 119 
+ERROR TYPE: Application 
+STACKTRACE: 	at cfuserController2ecfc447268575$funcUSERDETAILS.runFunction(D:\coldfusion\KisanSeva\controller\userController.cfc:119) 
+----------------------------------------------------------------------
+
+DATE/TIME: {ts '2017-05-14 21:34:36'} 
+ERROR MESSAGE: Error Executing Database Query. 
+ERROR DETAILS: [Macromedia][SQLServer JDBC Driver][SQLServer]Invalid object name 'dbo.UserAccount'. 
+ERROR TEMPLATE: C:\ColdFusion10\cfusion\CustomTags\com\adobe\coldfusion\base.cfc 
+ERROR LINE: 445 
+ERROR TYPE: Database 
+STACKTRACE: 	at cfbase2ecfc450754003$funcINVOKETAG.runFunction(C:\ColdFusion10\cfusion\CustomTags\com\adobe\coldfusion\base.cfc:445) 
+----------------------------------------------------------------------
+
+DATE/TIME: {ts '2017-05-14 21:34:36'} 
+ERROR MESSAGE: Element USERINFO is undefined in LOCAL. 
+ERROR DETAILS:  
+ERROR TEMPLATE: D:\coldfusion\KisanSeva\controller\userController.cfc 
+ERROR LINE: 120 
+ERROR TYPE: Expression 
+STACKTRACE: 	at cfuserController2ecfc447268575$funcUSERDETAILS.runFunction(D:\coldfusion\KisanSeva\controller\userController.cfc:120) 
+----------------------------------------------------------------------
+
+DATE/TIME: {ts '2017-05-14 21:34:53'} 
+ERROR MESSAGE: Error Executing Database Query. 
+ERROR DETAILS: [Macromedia][SQLServer JDBC Driver][SQLServer]Invalid object name 'dbo.UserAccount'. 
+ERROR TEMPLATE: C:\ColdFusion10\cfusion\CustomTags\com\adobe\coldfusion\base.cfc 
+ERROR LINE: 445 
+ERROR TYPE: Database 
+STACKTRACE: 	at cfbase2ecfc450754003$funcINVOKETAG.runFunction(C:\ColdFusion10\cfusion\CustomTags\com\adobe\coldfusion\base.cfc:445) 
+----------------------------------------------------------------------
+
+DATE/TIME: {ts '2017-05-14 21:34:53'} 
+ERROR MESSAGE: Element ISLOGGED is undefined in a Java object of type class [Ljava.lang.String;. 
+ERROR DETAILS:  
+ERROR TEMPLATE: D:\coldfusion\KisanSeva\controller\userController.cfc 
+ERROR LINE: 86 
+ERROR TYPE: Expression 
+STACKTRACE: 	at cfuserController2ecfc447268575$funcLOGINUSER.runFunction(D:\coldfusion\KisanSeva\controller\userController.cfc:86) 
+----------------------------------------------------------------------
+

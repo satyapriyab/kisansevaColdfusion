@@ -33,18 +33,7 @@ component {
 		var SESSION.userEmail = "";	
 	}
 	
-	/**
-    * Function to redict to error page on error.
-    *
-    * @param null.
-    */
-	function onError(any Exception, string eventName) {
-		WriteLog(type="Error", application = "yes", file="newlog", text = "Event Name: #ARGUMENTS.eventName# ||	
-		Message: #ARGUMENTS.Exception.message# || MessageDetails: #ARGUMENTS.Exception.detail# || 
-		Template: #arguments.exception.tagContext[1].template# || Line: #arguments.exception.tagContext[1].line# || 
-		Raw Trace: #arguments.exception.tagContext[1].raw_trace# "); 
-		location(url = "../../view/errorPage.cfm" addtoken = "false");
-	}
+
 	
 	/**
     * Function to set variables on session end.

@@ -103,7 +103,7 @@
 		</div>
 		<script src="../../assets/template/plugins/jQuery/jquery-2.2.3.min.js"></script>
 		<script src="../../assets/template/js/jquery-validation-1.16.0/dist/jquery.validate.js"></script>
-		<script src="../../assets/custom/js/script.js?ver=1342"></script>
+		<script src="../../assets/custom/js/script.js?ver=13425dfghgf5"></script>
 		<script src="../../assets/template/bootstrap/js/bootstrap.min.js"></script>
 	</body>
 </html>

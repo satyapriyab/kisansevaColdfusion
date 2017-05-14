@@ -2,8 +2,9 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 	<!-- Bootstrap 3.3.6 -->
+	<link href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" rel="stylesheet">
 	<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="../../assets/custom/css/main.css?ver=1.4.156">
+	<link rel="stylesheet" href="../../assets/custom/css/main.css?ver=1.4.16666">
 	<link rel="icon" type="image/png" href="../../assets/template/dist/img/favicon.ico'">
 	<link rel="stylesheet" href="../../assets/template/dist/css/fresh-bootstrap-table.css">
 	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
