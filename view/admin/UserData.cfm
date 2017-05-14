@@ -38,15 +38,9 @@
 					</a>
 				</li>
 				<li class="active treeview">
-					<a href="../../view/admin/dealerData.cfm">
-						<i class="fa fa-users"></i>
-						<span>Dealer</span>
-					</a>
-				</li>
-				<li class="treeview">
 					<a href="../../view/admin/userData.cfm">
 						<i class="fa fa-users"></i>
-						<span>Farmer</span>
+						<span>Users</span>
 					</a>
 				</li>
 				<li class="treeview">
@@ -82,33 +76,35 @@
 			<div class="row">
 				<div class="col-xs-12">
 					<div class="col-md-12">
-					<div class="table-responsive">
-					<table id="example" class="table table-striped table-curved" cellspacing="0" width="100%">
-        <thead>
-            <tr>
-				<th>Type</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Address</th>
-                <th>Contact</th>
-                <th>Rating</th>
-				<th>Action</th>
-            </tr>
-        </thead>
-		<tbody>
-		</tbody>
-        <tfoot>
-            <tr>
-			<th>Type</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Address</th>
-                <th>Contact</th>
-                <th>Rating</th>
-				<th>Action</th>
-            </tr>
-        </tfoot>
-    </table></div></div>
+						<div class="table-responsive">
+							<table id="example" class="table table-striped table-curved" cellspacing="0" width="100%">
+								<thead>
+									<tr>
+										<th>Type</th>
+										<th>Name</th>
+										<th>Email</th>
+										<th>Address</th>
+										<th>Contact</th>
+										<th>Rating</th>
+										<th>Action</th>
+									</tr>
+								</thead>
+								<tbody>
+								</tbody>
+								<tfoot>
+									<tr>
+										<th>Type</th>
+										<th>Name</th>
+										<th>Email</th>
+										<th>Address</th>
+										<th>Contact</th>
+										<th>Rating</th>
+										<th>Action</th>
+									</tr>
+								</tfoot>
+							</table>
+						</div>
+					</div>
 				</div>
 			</div>
 		</section>

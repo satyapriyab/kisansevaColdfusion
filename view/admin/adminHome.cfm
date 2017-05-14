@@ -31,15 +31,9 @@
 					</a>
 				</li>
 				<li class="treeview">
-					<a href="../../view/admin/dealerData.cfm">
-						<i class="fa fa-users"></i>
-						<span>Dealer</span>
-					</a>
-				</li>
-				<li class="treeview">
 					<a href="../../view/admin/userData.cfm">
 						<i class="fa fa-users"></i>
-						<span>Farmer</span>
+						<span>Users</span>
 					</a>
 				</li>
 				<li class="treeview">

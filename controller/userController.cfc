@@ -143,7 +143,7 @@ component {
 				for (i = 0; i <= 20; i++) {
 					LOCAL.random=LOCAL.random&Chr(RandRange(65, 90));
 				}
-				var LOCAL.insertToken = userObject.insertToken(random, email);
+				var LOCAL.insertToken = userObject.update(random, email, "UserTokenId", "UserEmail");
 				savecontent variable="mailBody" {
 					writeOutput( "To reset your password please visit this link: http://www.kisansevamindfire.com/view/login/resetPassword.cfm?token=#LOCAL.random#&email=#ARGUMENTS.email#");
 				};

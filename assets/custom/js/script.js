@@ -1,9 +1,23 @@
 $(document).ready(function(){
+	
+	/**
+    * Function to check password
+    *
+    * @param string value - contains the password data.
+    * @return null.
+    */
 	$.validator.addMethod("pwcheck", function(value) {
 		return /^[A-Za-z0-9\d=!\-@._*]*$/.test(value) // consists of only these
 		&& /[a-z]/.test(value) // has a lowercase letter
 		&& /\d/.test(value) // has a digit
 	});
+	
+	/**
+    * Function to validate registration data
+    *
+    * @param null.
+    * @return error messages if found.
+    */
 	$("#registerUser").validate({
 		rules: {
 			Name: {
@@ -54,7 +68,13 @@ $(document).ready(function(){
 			}
 		}
 	});
-	
+
+	/**
+    * Function to validate login data
+    *
+    * @param null.
+    * @return error messages if found.
+    */
 	$("#loginUser").validate({
 		rules: {
 			Email: {

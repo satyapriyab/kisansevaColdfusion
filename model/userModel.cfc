@@ -60,33 +60,12 @@ component {
 	}
 	
 	/**
-    * Function to add token to user data.
+    * Function to update data.
     *
-    * @param string $token - contains token value.
-    * @param string $email - contains email of the user.
-    * @return - Returns boolian value if token updated or not.
-    */
-	public boolean function insertToken(string token, string email)
-	{
-		try {
-			updatetoken = new Query();
-			updateToken.setSQL("UPDATE dbo.userInfo SET UserTokenId = :token WHERE UserEmail = :email");
-			updateToken.addParam( name = "token", value = "#arguments.token#", cfsqltype = "cf_sql_varchar" );
-			updateToken.addParam( name = "email", value = "#arguments.email#", cfsqltype = "cf_sql_varchar" );
-			result = updateToken.execute();
-			return "true";
-		}
-		
-		catch (any exception){
-			error.errorLog(exception);
-		}
-	}
-	
-	/**
-    * Function to add update password.
-    *
-    * @param string $password - contains new password.
-    * @param string $email - contains email of the user.
+    * @param string $data1 - contains data to be updated.
+    * @param string $data2 - contains the column data to be updated.
+    * @param string $field1 - contains name of column to be updated.
+    * @param string $field2 - contains name of column to be updated.
     * @return - Returns boolian value if token updated or not.
     */
 	public boolean function update(string data1, string data2, string field1, string field2)
@@ -105,12 +84,11 @@ component {
 		}
 	}
 	
-		/**
-    * Function to add update password.
+	/**
+    * Function to get all users Data.
     *
-    * @param string $password - contains new password.
-    * @param string $email - contains email of the user.
-    * @return - Returns boolian value if token updated or not.
+    * @param null
+    * @return - Returns object of all data found.
     */
 	public any function userDetails()
 	{
