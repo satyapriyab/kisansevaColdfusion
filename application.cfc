@@ -11,8 +11,8 @@ component {
 	this.clientmanagement = true;
 	this.sessionmanagement = true; 
 	this.setclientcookies = true;
-	this.sessiontimeout = "#createTimeSpan(0,0,5,10)#";
-	this.applicationtimeout = "#createTimeSpan(0,0,10,10)#";
+	this.sessiontimeout = "#createTimeSpan(0,0,20,10)#";
+	this.applicationtimeout = "#createTimeSpan(0,0,30,10)#";
 
 	/**
     * Function to set current user on applicaton start.
@@ -33,7 +33,23 @@ component {
 		var SESSION.userEmail = "";	
 	}
 	
+	function onRequestStart( string template ) {
+      var local = {};
+      local.basePath = getDirectoryFromPath(getCurrentTemplatePath());
+            
+      local.targetPath = getDirectoryFromPath(expandPath( arguments.template ));
 
+      local.requestDepth = (listLen( local.targetPath, "\/" ) - listLen( local.basePath, "\/" ));
+      request.webRoot = repeatString("../", local.requestDepth);
+
+      request.siteUrl = ("http://" & cgi.server_name & reReplace(getDirectoryFromPath( arguments.template ), "([^\\/]+[\\/]){#local.requestDepth#}$", "", "one"));
+      return true;
+    }
+
+    function onRequest( string targetPage ) {
+        include arguments.targetPage;
+        return;
+    }
 	
 	/**
     * Function to set variables on session end.

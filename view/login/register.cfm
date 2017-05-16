@@ -7,11 +7,11 @@
 -->
 <html lang = "en-US">
 	<head>
-		<link rel="stylesheet" href="../../assets/template/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="<cfoutput>#request.webRoot#</cfoutput>assets/template/bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-		<link rel="stylesheet" href="../../assets/template/dist/css/AdminLTE.min.css">
-		<link rel="stylesheet" href="../../assets/custom/css/main.css?ver=1.367">
+		<link rel="stylesheet" href="<cfoutput>#request.webRoot#</cfoutput>assets/template/dist/css/AdminLTE.min.css">
+		<link rel="stylesheet" href="<cfoutput>#request.webRoot#</cfoutput>assets/custom/css/main.css?ver=1.367">
 	</head>	
 	<body class="hold-transition login-page">
 		<cfset controllerObject = CreateObject("component","controller.userController") />
@@ -28,18 +28,18 @@
 				<p class="login-box-msg">Register a new membership</p>
 				<cfif  SESSION.isLogged NEQ "false">
 					<cfif  SESSION.type EQ 1>
-						<cflocation url="../../view/admin/adminHome.cfm" addToken="false"></cflocation>
+						<cflocation url="#request.webRoot#view/admin/adminHome.cfm" addToken="false"></cflocation>
 					<cfelseif  SESSION.type EQ 2>
-						<cflocation url="../../view/farmer/farmerHome.cfm" addToken="false"></cflocation>
+						<cflocation url="#request.webRoot#view/farmer/farmerHome.cfm" addToken="false"></cflocation>
 					<cfelseif SESSION.type EQ 3>
-						<cflocation url="../../view/dealer/dealerHome.cfm" addToken="false"></cflocation>
+						<cflocation url="#request.webRoot#view/dealer/dealerHome.cfm" addToken="false"></cflocation>
 					</cfif>
 				</cfif>
 				<cfif isDefined("errorMessages.emailExists")>
 					<cfoutput> #errorMessages.emailExists# </cfoutput>
 				</cfif>
 				<cfif isDefined("errorMessages.succesful")>
-					<cflocation url= "../../view/login/login.cfm" addToken="false"></cflocation>
+					<cflocation url= "#request.webRoot#view/login/login.cfm" addToken="false"></cflocation>
 				</cfif>
 				<cfform id="registerUser">
 					<div class="form-group has-feedback">
@@ -98,12 +98,12 @@
 						</div>
 					</div>
 				</cfform>
-				<a href="../../view/login/login.cfm" class="text-center">I already have a membership</a>
+				<a href="<cfoutput>#request.webRoot#</cfoutput>view/login/login.cfm" class="text-center">I already have a membership</a>
 			</div>
 		</div>
-		<script src="../../assets/template/plugins/jQuery/jquery-2.2.3.min.js"></script>
-		<script src="../../assets/template/js/jquery-validation-1.16.0/dist/jquery.validate.js"></script>
-		<script src="../../assets/custom/js/script.js?ver=13425dfghgf5"></script>
-		<script src="../../assets/template/bootstrap/js/bootstrap.min.js"></script>
+		<script src="<cfoutput>#request.webRoot#</cfoutput>assets/template/plugins/jQuery/jquery-2.2.3.min.js"></script>
+		<script src="<cfoutput>#request.webRoot#</cfoutput>assets/template/js/jquery-validation-1.16.0/dist/jquery.validate.js"></script>
+		<script src="<cfoutput>#request.webRoot#</cfoutput>assets/custom/js/script.js?ver=13425dfghgf5"></script>
+		<script src="<cfoutput>#request.webRoot#</cfoutput>assets/template/bootstrap/js/bootstrap.min.js"></script>
 	</body>
 </html>

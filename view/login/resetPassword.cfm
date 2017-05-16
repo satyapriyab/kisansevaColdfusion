@@ -7,28 +7,28 @@
 -->
 <html lang = "en-US">
 	<head>
-		<link rel="stylesheet" href="../../assets/template/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="<cfoutput>#request.webRoot#</cfoutput>assets/template/bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-		<link rel="stylesheet" href="../../assets/template/dist/css/AdminLTE.min.css">
-		<link rel="stylesheet" href = "../../assets/custom/css/main.css">
+		<link rel="stylesheet" href="<cfoutput>#request.webRoot#</cfoutput>assets/template/dist/css/AdminLTE.min.css">
+		<link rel="stylesheet" href = "<cfoutput>#request.webRoot#</cfoutput>assets/custom/css/main.css">
 	</head>	
 	<body class="hold-transition login-page">
 		<cfset controllerObject = CreateObject("component","controller.userController") />
 		<cfif  SESSION.isLogged NEQ "false">
 			<cfif  SESSION.type EQ 1>
-				<cflocation url="../../view/admin/adminHome.cfm" addToken="false"></cflocation>
+				<cflocation url="#request.webRoot#view/admin/adminHome.cfm" addToken="false"></cflocation>
 			<cfelseif  SESSION.type EQ 2>
-				<cflocation url="../../view/farmer/farmerHome.cfm" addToken="false"></cflocation>
+				<cflocation url="#request.webRoot#view/farmer/farmerHome.cfm" addToken="false"></cflocation>
 			<cfelseif SESSION.type EQ 3>
-				<cflocation url="../../view/dealer/dealerHome.cfm" addToken="false"></cflocation>
+				<cflocation url="#request.webRoot#view/dealer/dealerHome.cfm" addToken="false"></cflocation>
 			</cfif>
 		</cfif>
 		<cfset email = url.email />
 		<cfset token = url.token />
 		<cfset VARIABLES.emailCheck = controllerObject.userDetails( email = "#email#")>
 		<cfif (VARIABLES.emailCheck.getResult().recordCount EQ 0) OR (VARIABLES.emailCheck.getResult().UserTokenId NEQ token)>
-			<cflocation url="../../view/login/login.cfm" addToken="false"></cflocation>
+			<cflocation url="#request.webRoot#view/login/login.cfm" addToken="false"></cflocation>
 		</cfif>
 		<cfif StructKeyExists(form,"resetBtn")>
 			<cfset VARIABLES.messages = controllerObject.updatePassword( password = "#form.Password#", email = "#email#")>
@@ -45,7 +45,7 @@
 						<span class="glyphicon glyphicon-lock form-control-feedback"></span>
 						<cfif isDefined("messages")>
 							<cfif messages EQ true>
-								<cflocation url="../../view/login/login.cfm" addToken="false"></cflocation>
+								<cflocation url="#request.webRoot#view/login/login.cfm" addToken="false"></cflocation>
 							<cfelse>
 								<cfoutput> #messages# </cfoutput>
 							</cfif>
@@ -58,12 +58,12 @@
 						</div>
 					</div>
 				</cfform>
-				<a href="../../view/login/register.cfm" class="text-center">Register a new membership</a>
+				<a href="<cfoutput>#request.webRoot#</cfoutput>view/login/register.cfm" class="text-center">Register a new membership</a>
 			</div>
 		</div>
-		<script src="../../assets/template/plugins/jQuery/jquery-2.2.3.min.js"></script>
-		<script src="../../assets/template/js/jquery-validation-1.16.0/dist/jquery.validate.js"></script>
-		<script src="../../assets/template/bootstrap/js/bootstrap.min.js"></script>
-		<script src="../../assets/custom/js/script.js?ver=126536756556"></script>
+		<script src="<cfoutput>#request.webRoot#</cfoutput>assets/template/plugins/jQuery/jquery-2.2.3.min.js"></script>
+		<script src="<cfoutput>#request.webRoot#</cfoutput>assets/template/js/jquery-validation-1.16.0/dist/jquery.validate.js"></script>
+		<script src="<cfoutput>#request.webRoot#</cfoutput>assets/template/bootstrap/js/bootstrap.min.js"></script>
+		<script src="<cfoutput>#request.webRoot#</cfoutput>assets/custom/js/script.js?ver=sasa"></script>
 	</body>
 </html>

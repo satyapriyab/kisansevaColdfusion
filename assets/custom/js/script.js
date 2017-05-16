@@ -1,3 +1,9 @@
+/**
+* File    : script.js
+* Purpose : Contains all jquery codes to for user login and register
+* Created : 10-may-2017
+* Author  : Satyapriya Baral
+*/
 $(document).ready(function(){
 	
 	/**
@@ -93,6 +99,29 @@ $(document).ready(function(){
 			},
 			Password: {
 				required: "Please enter Password",
+				minlength: "Password should be of minimum 5 charecters"
+			}
+		}
+	});
+	
+	/**
+    * Function to reset password data
+    *
+    * @param null.
+    * @return error messages if found.
+    */
+	$("#resetPassword").validate({
+		rules: {
+			Password: {
+				required: true,
+				pwcheck: true,
+				minlength: 5
+			}
+		},
+		messages: {
+			Password: {
+				required: "Please enter Password",
+				pwcheck: "Password must be 8 characters including 1 uppercase letter, 1 special character, alphanumeric characters",
 				minlength: "Password should be of minimum 5 charecters"
 			}
 		}

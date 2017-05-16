@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <!--
-* File    : viewPost.blade.php
+* File    : UserData.cfm
 * Author  : Satyapriya Baral
 * Date    : 23-Mar-2017
-* Purpose : View Post Post for farmers  -->
+* Purpose : View details of user  -->
 <html>
 <head>
 	<title>Admin | FarmerDetails</title>
-	<cfinclude template="../master/header.cfm">
+	<cfinclude template="#request.webRoot#view/master/header.cfm">
 	<cfset controllerObject = CreateObject("component","controller.adminController") />
 	<cfif  SESSION.type NEQ 1>
-		<cflocation url="../../view/login/login.cfm" addToken="false"></cflocation>
+		<cflocation url="#request.webRoot#view/login/login.cfm" addToken="false"></cflocation>
 	</cfif>
 	<cfif isDefined("url.status")>
 		<cfset status = url.status />
 		<cfset userId = url.userId />
 		<cfset VARIABLES.changeStatus = controllerObject.statusUpdate( userId = "#userId#", status = "#status#")>
-		<cflocation url="../../view/admin/userData.cfm" addToken="false"></cflocation>
+		<cflocation url="#request.webRoot#view/admin/userData.cfm" addToken="false"></cflocation>
 	</cfif>
 	<aside class="main-sidebar">
 		<section class="sidebar">
 			<div class="user-panel">
 				<div class="pull-left image">
-					<img src="" class="img-circle" alt="User Image">
+					<img src="<cfoutput>#request.webRoot#</cfoutput>assets/custom/img/<cfoutput>#SESSION.image#</cfoutput>" class="img-circle" alt="User Image">
 				</div>
 				<div class="pull-left info">
 					<p><cfoutput> #SESSION.user# </cfoutput></p>
@@ -32,13 +32,13 @@
 			<ul class="sidebar-menu">
 				<li class="header">MAIN NAVIGATION</li>
 				<li class="treeview">
-					<a href="../../view/admin/adminHome.cfm">
+					<a href="<cfoutput>#request.webRoot#</cfoutput>view/admin/adminHome.cfm">
 						<i class="fa fa-home"></i>
 						<span>Home</span>
 					</a>
 				</li>
 				<li class="active treeview">
-					<a href="../../view/admin/userData.cfm">
+					<a href="<cfoutput>#request.webRoot#</cfoutput>view/admin/userData.cfm">
 						<i class="fa fa-users"></i>
 						<span>Users</span>
 					</a>
@@ -68,7 +68,7 @@
 		<section class="content-header">
 			<h1>Farmer Details</h1>
 			<ol class="breadcrumb">
-				<li><a href="../../view/admin/adminHome.cfm"><i class="fa fa-dashboard"></i> Home</a></li>
+				<li><a href="<cfoutput>#request.webRoot#</cfoutput>view/admin/adminHome.cfm"><i class="fa fa-dashboard"></i> Home</a></li>
 				<li class="active">Farmer Details</li>
 			</ol>
 		</section>
@@ -109,6 +109,6 @@
 			</div>
 		</section>
 	</div>
-	<script src="../../assets/template/plugins/jQuery/jquery-2.2.3.min.js"></script>
-	<script type="text/javascript" src="../../assets/custom/js/userTable.js?ver=1.4.11"></script>
-	<cfinclude template="../master/footer.cfm">
+	<script src="<cfoutput>#request.webRoot#</cfoutput>assets/template/plugins/jQuery/jquery-2.2.3.min.js"></script>
+	<script type="text/javascript" src="<cfoutput>#request.webRoot#</cfoutput>assets/custom/js/userTable.js?ver=1.4.11"></script>
+	<cfinclude template="#request.webRoot#view/master/footer.cfm">

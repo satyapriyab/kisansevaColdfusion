@@ -1,3 +1,9 @@
+/**
+* File    : userTable.js
+* Purpose : Contains all jquery user details table functionality
+* Created : 10-may-2017
+* Author  : Satyapriya Baral
+*/
 $(document).ready(function() {	
 	/*$.ajax({
 		type:"GET",

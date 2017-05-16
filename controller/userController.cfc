@@ -8,6 +8,7 @@
 component {
 	
 	userObject = CreateObject("component", "model.userModel");
+	imageObject = CreateObject("component", "model.imageModel");
 	error = CreateObject("component", "log.error");
 	/**
     * Function to check fields and register user.
@@ -91,6 +92,12 @@ component {
 					LOCAL.loginErrorMessages.user = 'Incorrect Password';
 					return LOCAL.loginErrorMessages;
 				} else {
+					if(LOCAL.isLogged.getResult().UserMediaId EQ "") {
+						var SESSION.image = "userImage.png";
+					} else {
+						var LOCAL.imageDetails = imageObject.userImage(LOCAL.isLogged.getResult().UserMediaId);
+						var SESSION.image = "#LOCAL.imageDetails.getResult().MediaName#";
+					}
 					var SESSION.isLogged = "true";
 					var SESSION.userEmail = "#arguments.email#";
 					var SESSION.user = "#isLogged.getResult().UserName#";
