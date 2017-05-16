@@ -23,7 +23,6 @@
 		$.widget.bridge('uibutton', $.ui.button);
 	</script>
 	<script src="<cfoutput>#request.webRoot#</cfoutput>assets/template/plugins/sparkline/jquery.sparkline.min.js"></script>
-
 	<script src="<cfoutput>#request.webRoot#</cfoutput>assets/template/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
 	<script src="<cfoutput>#request.webRoot#</cfoutput>assets/template/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
 	<script src="<cfoutput>#request.webRoot#</cfoutput>assets/template/plugins/knob/jquery.knob.js"></script>

@@ -92,10 +92,10 @@ component {
 					LOCAL.loginErrorMessages.user = 'Incorrect Password';
 					return LOCAL.loginErrorMessages;
 				} else {
-					if(LOCAL.isLogged.getResult().UserMediaId EQ "") {
+					var LOCAL.imageDetails = imageObject.userImage(LOCAL.isLogged.getResult().UserId);
+					if(LOCAL.imageDetails.getResult().recordCount EQ 0) {
 						var SESSION.image = "userImage.png";
 					} else {
-						var LOCAL.imageDetails = imageObject.userImage(LOCAL.isLogged.getResult().UserMediaId);
 						var SESSION.image = "#LOCAL.imageDetails.getResult().MediaName#";
 					}
 					var SESSION.isLogged = "true";
@@ -196,6 +196,50 @@ component {
 			error.errorLog(exception);
 		}
     }
+	
+	/**
+    * Function to edit the user profile.
+    *
+    * @param string $username - contains name of the user.
+    * @param string $address - contains address of the user.
+    * @param string $number - contains contact number of the user.
+    * @param string $image - contains the image to be uploaded.
+    * @param string $userId - contains id of the user.
+    * @param string $mediaId - contains id of the user media.
+    * @return - Returns messages of errors if any or success msg.
+    */
+	public any function editUserProfile(string username, string address, string number, string image, string userId, string mediaId)
+	{
+		try {
+			LOCAL.messages=StructNew();
+			if (Len(username) < 5) {
+				LOCAL.messages.Name = 'Name Should be of minimum 5 charecters';
+			}
+			if (Len(number) LESS THAN 10 OR Len(number) GREATER THAN 10) {
+				LOCAL.messages.Number = 'Number should be of 10 digits';
+			}
+			if (isDefined("messages") AND NOT structIsEmpty(messages)) {
+				return LOCAL.messages;
+			}
+			if (image NEQ "null") {
+				var imageName = fileUpload("#APPLICATION.baseUrlData#\assets\custom\img\profileImage.jpg", "#ARGUMENTS.image#", "image/jpeg ", "makeunique");
+				var LOCAL.imageDetails = imageObject.userImage(userId);
+				if(LOCAL.imageDetails.getResult().recordCount EQ 0) {
+						var LOCAL.createProfileImage = imageObject.createProfileImage("#imageName.ServerFileName#.#imageName.ServerFileExt#", userId);
+					} else {
+						var LOCAL.updateProfileImage = imageObject.updateProfileImage("#imageName.ServerFileName#.#imageName.ServerFileExt#", userId);
+					}
+				var SESSION.image = "#imageName.ServerFileName#.#imageName.ServerFileExt#";
+			} else {
+				var LOCAL.updateProfile = userObject.updateProfile(username, address, number, userId);
+			}
+			var SESSION.user = "#ARGUMENTS.username#";
+		}
+		
+		catch (any exception){
+			error.errorLog(exception);
+		}
+	}
 	
 	/**
     * Function to signout the user.

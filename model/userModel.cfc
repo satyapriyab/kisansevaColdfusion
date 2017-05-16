@@ -85,6 +85,33 @@ component {
 	}
 	
 	/**
+    * Function to update profile.
+    *
+    * @param string $data1 - contains data to be updated.
+    * @param string $data2 - contains the column data to be updated.
+    * @param string $field1 - contains name of column to be updated.
+    * @param string $field2 - contains name of column to be updated.
+    * @return - Returns boolian value if token updated or not.
+    */
+	public boolean function updateProfile(string name, string address, string number, string userId)
+	{
+		try {
+			update = new Query();
+			update.setSQL("UPDATE dbo.userInfo SET UserName = :name, UserAddress = :address, UserNumber = :number WHERE UserId = :userId");
+			update.addParam( name = "name", value = "#arguments.name#", cfsqltype = "cf_sql_varchar" );
+			update.addParam( name = "address", value = "#arguments.address#", cfsqltype = "cf_sql_varchar" );
+			update.addParam( name = "number", value = "#arguments.number#", cfsqltype = "cf_sql_varchar" );
+			update.addParam( name = "userId", value = "#arguments.userId#", cfsqltype = "cf_sql_varchar" );
+			result = update.execute();
+			return "true";
+		}
+		
+		catch (any exception){
+			error.errorLog(exception);
+		}
+	}
+	
+	/**
     * Function to get all users Data.
     *
     * @param null

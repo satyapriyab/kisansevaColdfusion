@@ -20,7 +20,8 @@ component {
     * @param null.
     */
 	function onApplicationStart() {
-		var Application.currentUsers = "";
+		Application.currentUsers = "";
+		Application.baseUrlData = getDirectoryFromPath(getCurrentTemplatePath());
 	}
 	
 	/**
@@ -34,6 +35,7 @@ component {
 	}
 	
 	function onRequestStart( string template ) {
+	  
       var local = {};
       local.basePath = getDirectoryFromPath(getCurrentTemplatePath());
             
