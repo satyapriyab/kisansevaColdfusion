@@ -116,3 +116,66 @@ ERROR TYPE: Expression
 STACKTRACE: 	at cfuserController2ecfc447268575$funcSIGNOUTUSER.runFunction(D:\coldfusion\KisanSeva\controller\userController.cfc:251) 
 ----------------------------------------------------------------------
 
+DATE/TIME: {ts '2017-05-17 12:32:59'} 
+ERROR MESSAGE: The method createCategory was not found in component D:\coldfusion\KisanSeva\model\userModel.cfc. 
+ERROR DETAILS: Ensure that the method is defined, and that it is spelled correctly. 
+ERROR TEMPLATE: D:\coldfusion\KisanSeva\controller\adminController.cfc 
+ERROR LINE: 107 
+ERROR TYPE: Application 
+STACKTRACE: 	at cfadminController2ecfc1734561433$funcADDCATEGORY.runFunction(D:\coldfusion\KisanSeva\controller\adminController.cfc:107) 
+----------------------------------------------------------------------
+
+DATE/TIME: {ts '2017-05-17 12:38:38'} 
+ERROR MESSAGE: Error Executing Database Query. 
+ERROR DETAILS: [Macromedia][SQLServer JDBC Driver][SQLServer]Implicit conversion from data type varchar to varbinary is not allowed. Use the CONVERT function to run this query. 
+ERROR TEMPLATE: C:\ColdFusion10\cfusion\CustomTags\com\adobe\coldfusion\base.cfc 
+ERROR LINE: 445 
+ERROR TYPE: Database 
+STACKTRACE: 	at cfbase2ecfc450754003$funcINVOKETAG.runFunction(C:\ColdFusion10\cfusion\CustomTags\com\adobe\coldfusion\base.cfc:445) 
+----------------------------------------------------------------------
+
+DATE/TIME: {ts '2017-05-17 12:38:38'} 
+ERROR MESSAGE: The value returned from the createCategory function is not of type boolean. 
+ERROR DETAILS: If the component name is specified as a return type, it is possible that either a definition file for the component cannot be found or is not accessible. 
+ERROR TEMPLATE: D:\coldfusion\KisanSeva\controller\adminController.cfc 
+ERROR LINE: 108 
+ERROR TYPE: boolean 
+STACKTRACE: 	at cfadminController2ecfc1734561433$funcADDCATEGORY.runFunction(D:\coldfusion\KisanSeva\controller\adminController.cfc:108) 
+----------------------------------------------------------------------
+
+DATE/TIME: {ts '2017-05-17 12:57:42'} 
+ERROR MESSAGE: Error Executing Database Query. 
+ERROR DETAILS: [Macromedia][SQLServer JDBC Driver][SQLServer]Implicit conversion from data type varchar to varbinary is not allowed. Use the CONVERT function to run this query. 
+ERROR TEMPLATE: C:\ColdFusion10\cfusion\CustomTags\com\adobe\coldfusion\base.cfc 
+ERROR LINE: 445 
+ERROR TYPE: Database 
+STACKTRACE: 	at cfbase2ecfc450754003$funcINVOKETAG.runFunction(C:\ColdFusion10\cfusion\CustomTags\com\adobe\coldfusion\base.cfc:445) 
+----------------------------------------------------------------------
+
+DATE/TIME: {ts '2017-05-17 12:57:42'} 
+ERROR MESSAGE: The value returned from the createCategory function is not of type boolean. 
+ERROR DETAILS: If the component name is specified as a return type, it is possible that either a definition file for the component cannot be found or is not accessible. 
+ERROR TEMPLATE: D:\coldfusion\KisanSeva\controller\adminController.cfc 
+ERROR LINE: 108 
+ERROR TYPE: boolean 
+STACKTRACE: 	at cfadminController2ecfc1734561433$funcADDCATEGORY.runFunction(D:\coldfusion\KisanSeva\controller\adminController.cfc:108) 
+----------------------------------------------------------------------
+
+DATE/TIME: {ts '2017-05-17 17:41:29'} 
+ERROR MESSAGE: Error Executing Database Query. 
+ERROR DETAILS: [Macromedia][SQLServer JDBC Driver][SQLServer]Incorrect syntax near '='. 
+ERROR TEMPLATE: C:\ColdFusion10\cfusion\CustomTags\com\adobe\coldfusion\base.cfc 
+ERROR LINE: 445 
+ERROR TYPE: Database 
+STACKTRACE: 	at cfbase2ecfc450754003$funcINVOKETAG.runFunction(C:\ColdFusion10\cfusion\CustomTags\com\adobe\coldfusion\base.cfc:445) 
+----------------------------------------------------------------------
+
+DATE/TIME: {ts '2017-05-17 17:41:29'} 
+ERROR MESSAGE: The value returned from the updateProfile function is not of type boolean. 
+ERROR DETAILS: If the component name is specified as a return type, it is possible that either a definition file for the component cannot be found or is not accessible. 
+ERROR TEMPLATE: D:\coldfusion\KisanSeva\controller\userController.cfc 
+ERROR LINE: 234 
+ERROR TYPE: boolean 
+STACKTRACE: 	at cfuserController2ecfc447268575$funcEDITUSERPROFILE.runFunction(D:\coldfusion\KisanSeva\controller\userController.cfc:234) 
+----------------------------------------------------------------------
+

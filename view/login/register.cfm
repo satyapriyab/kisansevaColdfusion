@@ -43,8 +43,8 @@
 				</cfif>
 				<cfform id="registerUser">
 					<div class="form-group has-feedback">
-						<select class="form-control" id="selectUserType" name="UserType">
-							<option value="0" selected="true">--Select User Type--</option>
+						<select class="form-control" id="userType" name="UserType">
+							<option value="" selected="true">--Select User Type--</option>
 							<option value="2">Farmer</option>
 							<option value="3">Dealer</option>
 						</select>
@@ -103,7 +103,7 @@
 		</div>
 		<script src="<cfoutput>#request.webRoot#</cfoutput>assets/template/plugins/jQuery/jquery-2.2.3.min.js"></script>
 		<script src="<cfoutput>#request.webRoot#</cfoutput>assets/template/js/jquery-validation-1.16.0/dist/jquery.validate.js"></script>
-		<script src="<cfoutput>#request.webRoot#</cfoutput>assets/custom/js/script.js?ver=13425dfghgf5"></script>
+		<script src="<cfoutput>#request.webRoot#</cfoutput>assets/custom/js/validation.js?ver=1342ssss"></script>
 		<script src="<cfoutput>#request.webRoot#</cfoutput>assets/template/bootstrap/js/bootstrap.min.js"></script>
 	</body>
 </html>

@@ -44,7 +44,7 @@
 					</a>
 				</li>
 				<li class="treeview">
-					<a href="#">
+					<a href="<cfoutput>#request.webRoot#</cfoutput>view/admin/addCategory.cfm">
 						<i class="fa fa-edit"></i>
 						<span>Category</span>
 					</a>
@@ -110,5 +110,5 @@
 		</section>
 	</div>
 	<script src="<cfoutput>#request.webRoot#</cfoutput>assets/template/plugins/jQuery/jquery-2.2.3.min.js"></script>
-	<script type="text/javascript" src="<cfoutput>#request.webRoot#</cfoutput>assets/custom/js/userTable.js?ver=1.4.11"></script>
+	<script type="text/javascript" src="<cfoutput>#request.webRoot#</cfoutput>assets/custom/js/userTable.js?ver=1shbhiy.11"></script>
 	<cfinclude template="#request.webRoot#view/master/footer.cfm">

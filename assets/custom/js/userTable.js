@@ -5,22 +5,7 @@
 * Author  : Satyapriya Baral
 */
 $(document).ready(function() {	
-	/*$.ajax({
-		type:"GET",
-		url: "../../../controller/adminController.cfc?method=userDetails&ReturnFormat=json",
-		cache:false,
-		success : function(data)
-		{	
-			jsonOBJ = jQuery.parseJSON(data);
-			for (var key in jsonOBJ) {
-				console.log(jsonOBJ[key]);
-			}
-		}							
-		}).fail(function(jqXHR , textStatus )
-		{
-			alert('your message');	
-	}); */
-	
+
 	/**
     * Ajax call to get all user data
     *

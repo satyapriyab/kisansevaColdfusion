@@ -37,7 +37,7 @@
 					</a>
 				</li>
 				<li class="treeview">
-					<a href="#">
+					<a href="<cfoutput>#request.webRoot#</cfoutput>view/admin/addCategory.cfm">
 						<i class="fa fa-edit"></i>
 						<span>Category</span>
 					</a>

@@ -42,18 +42,14 @@ component {
 			if (Len(number) LESS THAN 10 OR Len(number) GREATER THAN 10) {
 				LOCAL.errorMessages.Number = 'Number should be of 10 digits';
 			}
-			if (isDefined("errorMessages") AND NOT structIsEmpty(errorMessages)) {
-				return LOCAL.errorMessages;
-			}
 			var LOCAL.checkUser = userObject.checkUser(email);
 			if (checkUser.getResult().recordCount NEQ 0 ) {
 				LOCAL.errorMessages.emailExists = 'Email Already Exists';
-				return LOCAL.errorMessages;
 			} else {
-				var LOCAL.isRegistered = userObject.createUser(type, username, email, password, address, number);
+				LOCAL.isRegistered = userObject.createUser(type, username, email, password, address, number);
 				LOCAL.errorMessages.succesful = 'Registered Succesfully';
 			}
-		return errorMessages;
+			return errorMessages;
 		}
 		
 		catch (any exception){
@@ -79,34 +75,29 @@ component {
 			if (Len(password) < 5) {
 				LOCAL.loginErrorMessages.Password = 'Password Should be of minimum 5 charecters';
 			}
-			if (isDefined("loginErrorMessages") AND NOT structIsEmpty(loginErrorMessages)) {
-				return LOCAL.loginErrorMessages;
-			}
-			var LOCAL.hashPassword = HASH(ARGUMENTS.password);
-			var LOCAL.isLogged = userObject.checkUser(email);
+			LOCAL.hashPassword = HASH(ARGUMENTS.password);
+			LOCAL.isLogged = userObject.checkUser(email);
 			if(LOCAL.isLogged.getResult().recordCount EQ 0) {
 				LOCAL.loginErrorMessages.user = 'Incorrect Email or Password';
-				return LOCAL.loginErrorMessages;
 			} else {
 				if(LOCAL.isLogged.getResult().UserPassword NEQ LOCAL.hashPassword) {
-					LOCAL.loginErrorMessages.user = 'Incorrect Password';
-					return LOCAL.loginErrorMessages;
+					LOCAL.loginErrorMessages.user = 'Incorrect Email or Password';
 				} else {
-					var LOCAL.imageDetails = imageObject.userImage(LOCAL.isLogged.getResult().UserId);
+					LOCAL.imageDetails = imageObject.userImage(LOCAL.isLogged.getResult().UserId);
 					if(LOCAL.imageDetails.getResult().recordCount EQ 0) {
-						var SESSION.image = "userImage.png";
+						SESSION.image = "userImage.png";
 					} else {
-						var SESSION.image = "#LOCAL.imageDetails.getResult().MediaName#";
+						SESSION.image = "#LOCAL.imageDetails.getResult().MediaName#";
 					}
-					var SESSION.isLogged = "true";
-					var SESSION.userEmail = "#arguments.email#";
-					var SESSION.user = "#isLogged.getResult().UserName#";
-					var SESSION.type = "#isLogged.getResult().UserTypeId#";
+					SESSION.isLogged = "true";
+					SESSION.userEmail = "#arguments.email#";
+					SESSION.user = "#isLogged.getResult().UserName#";
+					SESSION.type = "#isLogged.getResult().UserTypeId#";
 					APPLICATION.currentUsers = listAppend(APPLICATION.currentUsers, #ARGUMENTS.email#);
 					LOCAL.loginErrorMessages.type = LOCAL.isLogged.getResult().UserTypeId;
-					return LOCAL.loginErrorMessages;
-				}	
+				}
 			}
+			return LOCAL.loginErrorMessages;
 		}
 		
 		catch (any exception){
@@ -123,7 +114,7 @@ component {
 	public any function userDetails(string email)
 	{
 		try {
-			var LOCAL.userInfo = userObject.checkUser(email);
+			LOCAL.userInfo = userObject.checkUser(email);
 			return LOCAL.userInfo;
 		}
 		
@@ -141,16 +132,16 @@ component {
     public any function createToken(string email)
     {
 		try {
-			var LOCAL.message=StructNew();
+			LOCAL.message=StructNew();
 			//checks if email exist or not
-			var LOCAL.userInfo = userObject.checkUser(email);
+			LOCAL.userInfo = userObject.checkUser(email);
 			if(LOCAL.userInfo.getResult().recordCount NEQ 0) {
-				var LOCAL.random="";
+				LOCAL.random="";
 				var i = 0;
 				for (i = 0; i <= 20; i++) {
 					LOCAL.random=LOCAL.random&Chr(RandRange(65, 90));
 				}
-				var LOCAL.insertToken = userObject.update(random, email, "UserTokenId", "UserEmail");
+				LOCAL.insertToken = userObject.update(random, email, "UserTokenId", "UserEmail");
 				savecontent variable="mailBody" {
 					writeOutput( "To reset your password please visit this link: http://www.kisansevamindfire.com/view/login/resetPassword.cfm?token=#LOCAL.random#&email=#ARGUMENTS.email#");
 				};
@@ -188,7 +179,7 @@ component {
 				return 'Password Should be of minimum 5 charecters';
 			}
 			var hashPassword = HASH(password);
-			var LOCAL.updatePassword = userObject.update(LOCAL.hashPassword, ARGUMENTS.email, "UserPassword", "UserEmail");
+			LOCAL.updatePassword = userObject.update(LOCAL.hashPassword, ARGUMENTS.email, "UserPassword", "UserEmail");
 			return LOCAL.updatePassword;
 		}
 		
@@ -223,17 +214,17 @@ component {
 			}
 			if (image NEQ "null") {
 				var imageName = fileUpload("#APPLICATION.baseUrlData#\assets\custom\img\profileImage.jpg", "#ARGUMENTS.image#", "image/jpeg ", "makeunique");
-				var LOCAL.imageDetails = imageObject.userImage(userId);
+				LOCAL.imageDetails = imageObject.userImage(userId);
 				if(LOCAL.imageDetails.getResult().recordCount EQ 0) {
-						var LOCAL.createProfileImage = imageObject.createProfileImage("#imageName.ServerFileName#.#imageName.ServerFileExt#", userId);
+						LOCAL.createProfileImage = imageObject.createProfileImage("#imageName.ServerFileName#.#imageName.ServerFileExt#", userId);
 					} else {
-						var LOCAL.updateProfileImage = imageObject.updateProfileImage("#imageName.ServerFileName#.#imageName.ServerFileExt#", userId);
+						LOCAL.updateProfileImage = imageObject.updateProfileImage("#imageName.ServerFileName#.#imageName.ServerFileExt#", userId);
 					}
-				var SESSION.image = "#imageName.ServerFileName#.#imageName.ServerFileExt#";
+				SESSION.image = "#imageName.ServerFileName#.#imageName.ServerFileExt#";
 			} else {
-				var LOCAL.updateProfile = userObject.updateProfile(username, address, number, userId);
+				LOCAL.updateProfile = userObject.updateProfile(username, address, number, userId);
 			}
-			var SESSION.user = "#ARGUMENTS.username#";
+			SESSION.user = "#ARGUMENTS.username#";
 		}
 		
 		catch (any exception){
@@ -254,9 +245,9 @@ component {
 				APPLICATION.currentUsers = listDeleteAt(APPLICATION.currentUsers,listFind(APPLICATION.currentUsers, SESSION.userEmail));
 			}
 			structClear(SESSION);
-			var SESSION.isLogged = "false";
-			var SESSION.userEmail = "";
-			var SESSION.type = "";
+			SESSION.isLogged = "false";
+			SESSION.userEmail = "";
+			SESSION.type = "";
 			location(url="../../view/login/login.cfm", addToken="false");
 			sessionInvalidate();
 		}

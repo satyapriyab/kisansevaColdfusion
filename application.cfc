@@ -30,8 +30,8 @@ component {
     * @param null.
     */
 	function onSessionStart() {
-		var SESSION.isLogged = "false";
-		var SESSION.userEmail = "";	
+		SESSION.isLogged = "false";
+		SESSION.userEmail = "";	
 	}
 	
 	function onRequestStart( string template ) {

@@ -50,7 +50,7 @@
 					</a>
 				</li>
 				<li class="treeview">
-					<a href="#">
+					<a href="<cfoutput>#request.webRoot#</cfoutput>view/admin/addCategory.cfm">
 						<i class="fa fa-edit"></i>
 						<span>Category</span>
 					</a>
@@ -74,11 +74,11 @@
 		<section class="content-header">
 			<h1>
 				<cfoutput> #SESSION.user# </cfoutput>
-				Dashboard	
+				Profile	
 			</h1>
 			<ol class="breadcrumb">
-				<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-				<li class="active">Dashboard</li>
+				<li><a href="<cfoutput>#request.webRoot#</cfoutput>view/admin/adminHome.cfm"><i class="fa fa-dashboard"></i> Home</a></li>
+				<li class="active">Profile</li>
 			</ol>
 		</section>
         <section class="content">
@@ -173,4 +173,7 @@
 		</div>
 		<div class="control-sidebar-bg"></div>
     </div>
+	<script src="<cfoutput>#request.webRoot#</cfoutput>assets/template/plugins/jQuery/jquery-2.2.3.min.js"></script>
+	<script src="<cfoutput>#request.webRoot#</cfoutput>assets/template/js/jquery-validation-1.16.0/dist/jquery.validate.js"></script>
+	<script src="<cfoutput>#request.webRoot#</cfoutput>assets/custom/js/profile.js?ver=12653sda"></script>
 	<cfinclude template="#request.webRoot#view/master/footer.cfm">

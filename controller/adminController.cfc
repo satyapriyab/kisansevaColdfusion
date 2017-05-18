@@ -8,6 +8,7 @@
 component {
 	
 	userObject = CreateObject("component", "model.userModel");
+	categoryObject = CreateObject("component", "model.categoryModel");
 	error = CreateObject("component", "log.error");
 	
 	/**
@@ -19,21 +20,20 @@ component {
 	function userDetails() access="remote"
 	{
 		try {
-			var LOCAL.userDetails = userObject.userDetails();
-			var LOCAL.farmerDetails = ArrayNew(1);
-			var data = [];
+			LOCAL.userDetails = userObject.userDetails();	
+			LOCAL.data = [];
 		
 			for(i=1 ; i <= LOCAL.userDetails.getResult().recordcount ; i++) {
 				if(LOCAL.userDetails.getResult().UserIsActive[i] NEQ 1){
-					var LOCAL.action = "<Button class='label label-danger glyphicon glyphicon-remove-sign' onclick=window.location='../../view/admin/userData.cfm?status=#LOCAL.userDetails.getResult().UserIsActive[i]#&userId=#LOCAL.userDetails.getResult().UserId[i]#'>Disable</Button>";
+					LOCAL.action = "<Button class='label label-danger glyphicon glyphicon-remove-sign' onclick=window.location='../../view/admin/userData.cfm?status=#LOCAL.userDetails.getResult().UserIsActive[i]#&userId=#LOCAL.userDetails.getResult().UserId[i]#'>Disable</Button>";
 				} else {
-					var LOCAL.action = "<Button class='label label-success' onclick=window.location='../../view/admin/userData.cfm?status=#LOCAL.userDetails.getResult().UserIsActive[i]#&userId=#LOCAL.userDetails.getResult().UserId[i]#'>Enable</Button>";
+					LOCAL.action = "<Button class='label label-success' onclick=window.location='../../view/admin/userData.cfm?status=#LOCAL.userDetails.getResult().UserIsActive[i]#&userId=#LOCAL.userDetails.getResult().UserId[i]#'>Enable</Button>";
 				}
 			
 				if(LOCAL.userDetails.getResult().UserTypeId[i] EQ 2) {
-					var LOCAL.type = "Farmer";
+					LOCAL.type = "Farmer";
 				} else if(LOCAL.userDetails.getResult().UserTypeId[i] EQ 3) {
-					var LOCAL.type = "Dealer";
+					LOCAL.type = "Dealer";
 				}
 			
 				if(LOCAL.userDetails.getResult().UserTypeId[i] NEQ 1) {
@@ -80,12 +80,94 @@ component {
 			} else {
 				LOCAL.status = 1;
 			}
-			var LOCAL.userDetails = userObject.update(LOCAL.status, ARGUMENTS.userId, "UserIsActive", "UserId");
+			LOCAL.userDetails = userObject.update(LOCAL.status, ARGUMENTS.userId, "UserIsActive", "UserId");
 		}
 
 		catch (any exception){
 			error.errorLog(exception);
 		}		
 	}
+
+	/**
+    * Function to add new category of crop.
+    *
+    * @param string $category - contains name of the category.
+    * @return - Returns messages of errors if any or success msg.
+    */
+	public any function addCategory(string category)
+	{
+		try {
+			LOCAL.messages=StructNew();
+			if (category EQ "") {
+				LOCAL.messages.Category = 'Please Enter Category';
+			}
+			if (isDefined("messages") AND NOT structIsEmpty(messages)) {
+				return LOCAL.messages;
+			}
+			LOCAL.category = categoryObject.createCategory(category);
+			return LOCAL.category;
+		}
+		
+		catch (any exception){
+			error.errorLog(exception);
+		}
+	}
+	
+	/**
+    * Function to add new crop under category.
+    *
+    * @param string $category - contains name of the category.
+    * @return - Returns messages of errors if any or success msg.
+    */
+	any function addCrop(string categoryId, string crop) access="remote"
+	{
+		try {
+			LOCAL.addCrop = categoryObject.createCrop(categoryId, crop);
+		}
+		
+		catch (any exception){
+			error.errorLog(exception);
+		}
+	}
+	/**
+    * Function to view all category details.
+    *
+    * @param null.
+    * @return - Returns object of all category details.
+    */
+	public any function viewCategory()
+	{
+		try {
+			LOCAL.category = categoryObject.viewCategory();
+			return LOCAL.category;
+		}
+		
+		catch (any exception){
+			error.errorLog(exception);
+		}
+	}
+	
+	/**
+    * Function to get all data of users.
+    *
+    * @param null
+    * @return - Returns user data to the ajax call.
+    */
+	any function viewCrops(string id) access="remote"
+	{
+		LOCAL.crops = categoryObject.viewCrops();
+		if(LOCAL.crops.getResult().recordCount EQ 0) {
+			WriteOutput( serializeJSON("No Crops Found"));
+		} else {
+			LOCAL.cropDetails = [];
+			for(i=1 ; i <= LOCAL.crops.getResult().recordcount ; i++) {
+				if( LOCAL.crops.getResult().CategoryId[i] EQ ARGUMENTS.id ){
+					arrayAppend(LOCAL.cropDetails, LOCAL.crops.getResult().CropName[i]);
+				}
+			}
+			writeOutput( serializeJSON(LOCAL.cropDetails) );
+		}
+	}
+	
 
 }

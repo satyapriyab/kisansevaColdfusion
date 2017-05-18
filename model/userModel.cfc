@@ -97,7 +97,7 @@ component {
 	{
 		try {
 			update = new Query();
-			update.setSQL("UPDATE dbo.userInfo SET UserName = :name, UserAddress = :address, UserNumber = :number WHERE UserId = :userId");
+			update.setSQL(" Update dbo.userInfo SET UserName = :name, UserAddress = :address, UserNumber = :number WHERE UserId = :userId");
 			update.addParam( name = "name", value = "#arguments.name#", cfsqltype = "cf_sql_varchar" );
 			update.addParam( name = "address", value = "#arguments.address#", cfsqltype = "cf_sql_varchar" );
 			update.addParam( name = "number", value = "#arguments.number#", cfsqltype = "cf_sql_varchar" );
